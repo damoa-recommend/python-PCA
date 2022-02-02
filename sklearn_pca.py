@@ -23,5 +23,8 @@ print(grade_scaler)
 pca = PCA()
 pca.fit(grade_scaler)
 
-print('고유값(PCA 성분): ' ) # PCA의 결과는 결국 고유 벡터를 출력한다.
+# PCA의 결과는 결국 고유 벡터를 출력한다.
+# 고유 벡터는 원본 데이터의 가장 큰 분산을 나타낼 수 있는 벡터가 된다.
+# 해당 벡터를 이용하여 기존 데이터를 해당 벡터를 기준으로 다시 설정할 수 있다.
+print('고유값(PCA 성분): ' ) 
 print(pca.components_)
