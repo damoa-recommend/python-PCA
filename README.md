@@ -23,3 +23,9 @@ PCA1.py에서 생성한 2개의 주성분으로 다시 그래프를 그리면 �
 ![](./resource/eigen_vector_change.png)
 
 새롭게 구한 PC1, PC2를 이용하여 그래프위에 데이터를 표현할 수 있다
+
+# 더 공부해야 할 개념 
+
+* SVD
+
+* LDA
