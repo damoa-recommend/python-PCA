@@ -46,15 +46,19 @@ plt.quiver(0, 0, pca.components_[1][0], pca.components_[1][1], color = 'green') 
 # plt.grid()
 # plt.show()
 
-# 2. 고유 벡터를 기반으로 원본 데이터 재설정
+# 2. 고유 벡터를 기반으로 원본 데이터 재설정 => PCA
 plt.subplot(1,2,2)
 PC1 = [grade_scaler[i][0] * pca.components_[0][0] + grade_scaler[i][1] * pca.components_[0][1] for i in range(len(grade_scaler))]
+# PC1 = grade_scaler.dot(pca.components_[0].T)
+
 PC2 = [grade_scaler[i][0] * pca.components_[1][0] + grade_scaler[i][1] * pca.components_[1][1] for i in range(len(grade_scaler))]
+# PC2 = grade_scaler.dot(pca.components_[1].T)
 
 print('주성분(고유벡터)를 기준으로 만들어진 데이터: ', )
 print(PC1)
 print('주성분(고유벡터)를 기준으로 만들어진 데이터: ', )
 print(PC2)
+
 
 plt.plot(PC1, PC2, 'ro')
 
