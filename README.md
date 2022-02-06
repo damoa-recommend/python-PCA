@@ -26,7 +26,7 @@ PCA1.py에서 생성한 2개의 주성분으로 다시 그래프를 그리면 �
 
 # 더 공부해야 할 개념 
 
-* SVD(Singular Value Decomposition): 특잇값 분해, [추천 시스템](https://github.com/damoa-recommend/recommend-collaborative-contentbase-hybrid) 에서 사용
+* SVD(Singular Value Decomposition): 특잇값 분해, [추천 시스템](https://github.com/damoa-recommend/recommend-collaborative-contentbase-hybrid), 이미지 압축에서 사용
 
 * LDA(Linear Discriminant Analysis): [Latent Dirichlet Allocation](https://github.com/damoa-recommend/SVD-LSA)가 아닌 Linear Discriminant Analysis이다. Latent Dirichlet Allocation는 SVD를 활용하여 문서의 주제를 파악하는 알고리즘이다. Linear Discriminant Analysis는 PCA와 마찬가지로 차원축소 기법
 
