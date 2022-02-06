@@ -10,21 +10,30 @@ from sklearn.datasets import load_iris, fetch_olivetti_faces
 from sklearn.decomposition import PCA, IncrementalPCA, KernelPCA, SparsePCA
 from sklearn.preprocessing import StandardScaler
 
-from plot import *
+LABEL_COLOR = ['navy', 'purple', 'red'] # setosa, versicolor, virginica
+# columns: sepal length(cm), sepal width(cm), petal length(cm), petal width(cm)
+
+def plot_iris3(iris, labels, plt):
+  fig = plt.figure()
+  ax = fig.gca(projection="3d")
+  
+  for xy, label in zip(iris, labels):
+    ax.scatter(xy[0], xy[1], xy[2], c=LABEL_COLOR[label]) # x, y, z
+  ax.set_xlabel("sepal length(cm)")
+  ax.set_ylabel("sepal width(cm)")
+  ax.set_zlabel("petal length(cm)")
 
 def plot_iris2(iris, labels, plt):
   plt.figure()
-  colors = ['navy', 'purple', 'red']
 
   for xy, label in zip(iris, labels):
-    plt.scatter(xy[0], xy[1], c=colors[label])
+    plt.scatter(xy[0], xy[1], c=LABEL_COLOR[label])
 
 def plot_iris1(iris, labels, plt):
   plt.figure()
-  colors = ['navy', 'purple', 'red']
 
   for xy, label in zip(iris, labels):
-    plt.scatter(xy[0], 0, c=colors[label])
+    plt.scatter(xy[0], 0, c=LABEL_COLOR[label])
 
 iris, labels = load_iris(return_X_y=True)
 iris = StandardScaler().fit_transform(iris) # 데이터 표준화
@@ -32,8 +41,8 @@ iris = StandardScaler().fit_transform(iris) # 데이터 표준화
 print()
 print('iris dataset: ')
 print(iris[0:3])
-# print('iris label: ')
-# print(labels[0: 3])
+print('iris label: ')
+print(labels[0: 3])
 
 print('before feature')
 print(iris.shape) 
@@ -67,12 +76,13 @@ print(iris[0].dot(pca.components_[0]), transformed_iris[0][0])
 
 # 만약 컴포넌트가 1개라면? 
 # plt.scatter(xy[0], xy[1], c=colors[label]) y축을 0으로 해야한다.
-plot_iris2(iris, labels, plt) 
+plot_iris3(iris, labels, plt) 
 plt.title('original data')
 
 plot_iris2(transformed_iris, labels, plt) 
-
 plt.title('principal components: 2EA, variance: %f'%(explained_variance_score))
+plt.xlabel('PC1')
+plt.ylabel('PC2')
 
 pca = PCA(n_components=1)
 pca.fit(iris)
@@ -80,5 +90,6 @@ transformed_iris = pca.transform(iris)
 explained_variance_score = sum(pca.explained_variance_ratio_)
 plot_iris1(transformed_iris, labels, plt) 
 plt.title('principal components: 1EA, variance: %f'%explained_variance_score)
+plt.xlabel('PC1')
 
 plt.show()
