@@ -1,3 +1,5 @@
+# https://blog.naver.com/pjt3591oo/222641548110
+
 from PIL import Image
 from sklearn.decomposition import PCA
 from numpy import asarray
